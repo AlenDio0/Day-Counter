@@ -5,6 +5,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{16F28918-716C-4279-B53D-93AD2A64E01D}|DayCounter.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\day counter\\source\\dcsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{16F28918-716C-4279-B53D-93AD2A64E01D}|DayCounter.csproj|solutionrelative:dcsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16F28918-716C-4279-B53D-93AD2A64E01D}|DayCounter.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Day Counter\\Source\\dcdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16F28918-716C-4279-B53D-93AD2A64E01D}|DayCounter.csproj|solutionrelative:dcdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16F28918-716C-4279-B53D-93AD2A64E01D}|DayCounter.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\day counter\\source\\dccomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16F28918-716C-4279-B53D-93AD2A64E01D}|DayCounter.csproj|solutionrelative:dccomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16F28918-716C-4279-B53D-93AD2A64E01D}|DayCounter.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\day counter\\source\\daycountermod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16F28918-716C-4279-B53D-93AD2A64E01D}|DayCounter.csproj|solutionrelative:daycountermod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +26,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
@@ -26,13 +42,52 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DayCounterMod.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Day Counter\\Source\\DayCounterMod.cs",
+              "RelativeDocumentMoniker": "DayCounterMod.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Day Counter\\Source\\DayCounterMod.cs",
+              "RelativeToolTip": "DayCounterMod.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T22:09:24.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DCComponent.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Day Counter\\Source\\DCComponent.cs",
+              "RelativeDocumentMoniker": "DCComponent.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Day Counter\\Source\\DCComponent.cs",
+              "RelativeToolTip": "DCComponent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T22:09:22.728Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DCData.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Day Counter\\Source\\DCData.cs",
+              "RelativeDocumentMoniker": "DCData.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Day Counter\\Source\\DCData.cs",
+              "RelativeToolTip": "DCData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T21:38:17.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "DCSettings.cs",
               "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Day Counter\\Source\\DCSettings.cs",
               "RelativeDocumentMoniker": "DCSettings.cs",
               "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Day Counter\\Source\\DCSettings.cs",
               "RelativeToolTip": "DCSettings.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAACIAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADEAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-29T17:57:13.949Z",
               "EditorCaption": ""

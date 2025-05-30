@@ -33,7 +33,6 @@ namespace DayCounter
             listing.Begin(canva);
 
             float rowHeight = Text.LineHeight + 4f;
-            float spacingSameRow = 75f;
 
             // Checkbox
             Rect createCheckbox(Rect row) => new Rect(row.x, row.y, 300f, rowHeight);
@@ -48,6 +47,7 @@ namespace DayCounter
 
             // Text Field
             Rect createTextField(Rect row, float x) => new Rect(row.x + x, row.y, 180f, rowHeight);
+            float spacingRow = 40f;
             // Offset & Scale
             listing.Gap(24f);
             Rect currentRow = listing.GetRect(rowHeight);
@@ -55,10 +55,10 @@ namespace DayCounter
             Rect offsetXRect = createTextField(currentRow, 0f);
             Widgets.TextFieldNumericLabeled(offsetXRect, $"{DCData.Label_TextOffsetX}  ", ref TextOffsetX, ref m_BufferOffsetX, -2000f);
 
-            Rect offsetYRect = createTextField(currentRow, offsetXRect.xMax);
+            Rect offsetYRect = createTextField(currentRow, offsetXRect.xMax + spacingRow);
             Widgets.TextFieldNumericLabeled(offsetYRect, $"{DCData.Label_TextOffsetY}  ", ref TextOffsetY, ref m_BufferOffsetY, -2000f);
 
-            Rect scaleRect = createTextField(currentRow, offsetYRect.xMax);
+            Rect scaleRect = createTextField(currentRow, offsetYRect.xMax + spacingRow);
             Widgets.TextFieldNumericLabeled(scaleRect, $"{DCData.Label_TextScale}    ", ref TextScale, ref m_BufferScale, 0.1f, 50f);
 
             // Color

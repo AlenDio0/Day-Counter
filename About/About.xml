@@ -3,7 +3,9 @@
 	<packageId>AlenDio.DayCounter</packageId>
 	<name>Day Counter</name>
 	<author>AlenDio</author>
-	<description>Description</description>
+	<description>Adds an always-on-display text that shows how many day passed.
+Go into mod settings to configure it.
+	</description>
 	<supportedVersions>
 		<li>1.5</li>
 	</supportedVersions>

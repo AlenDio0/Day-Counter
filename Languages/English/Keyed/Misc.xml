@@ -2,6 +2,7 @@
 <LanguageData>
 	<TextDay>Day:</TextDay>
 	
+	<Label_TextEnabled>Text Enabled</Label_TextEnabled>
 	<Label_TextOriginUpRight>Text Origin up-right</Label_TextOriginUpRight>
 	<Label_TextOutline>Text Outline</Label_TextOutline>
 	

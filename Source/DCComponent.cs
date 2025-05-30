@@ -11,6 +11,11 @@ namespace DayCounter
 
         public override void GameComponentOnGUI()
         {
+            if (!DayCounterMod.s_Settings.Enabled)
+            {
+                return;
+            }
+
             Text.Font = GameFont.Small;
             Color defaultColor = GUI.color;
             Matrix4x4 defaultMatrix = GUI.matrix;
