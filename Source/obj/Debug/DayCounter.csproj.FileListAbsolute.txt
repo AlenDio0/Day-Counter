@@ -1,0 +1,4 @@
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Day Counter\Assemblies\DayCounter.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Day Counter\Source\obj\Debug\DayCounter.csproj.AssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Day Counter\Source\obj\Debug\DayCounter.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Day Counter\Source\obj\Debug\DayCounter.dll

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<TextDay>Day:</TextDay>
+	
+	<Label_TextOriginUpRight>Text Origin up-right</Label_TextOriginUpRight>
+	<Label_TextOutline>Text Outline</Label_TextOutline>
+	
+	<Label_TextOffsetX>Text Offset X</Label_TextOffsetX>
+	<Label_TextOffsetY>Text Offset Y</Label_TextOffsetY>
+	<Label_TextScale>Text Scale</Label_TextScale>
+	
+	<Label_TextColor>Text Color HEX</Label_TextColor>
+	<Label_TextOutlineColor>Text Outline Color HEX</Label_TextOutlineColor>
+	
+	<Label_TextOutlineThickness>Text Outline Thickness</Label_TextOutlineThickness>
+</LanguageData>
