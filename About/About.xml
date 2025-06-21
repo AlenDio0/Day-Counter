@@ -7,13 +7,8 @@
 Go into mod settings to configure it.
 	</description>
 	<supportedVersions>
+		<li>1.6</li>
 		<li>1.5</li>
 	</supportedVersions>
-	<modVersion IgnoreIfNoMatchingField="True">1.0</modVersion>
-	<loadAfter>
-		<li>Ludeon.RimWorld</li>
-		<li>Ludeon.RimWorld.Royalty</li>
-		<li>Ludeon.RimWorld.Biotech</li>
-		<li>Ludeon.RimWorld.Anomaly</li>
-	</loadAfter>
+	<modVersion IgnoreIfNoMatchingField="True">2.0</modVersion>
 </ModMetaData>
