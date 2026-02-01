@@ -3,18 +3,26 @@ using Verse;
 
 namespace DayCounter
 {
-    public class DayCounterMod : Mod
+    public class DCMod : Mod
     {
-        public static DCSettings s_Settings;
+        public static DCModSettings s_Settings;
+        public static ModContentPack s_ModContent;
 
-        public DayCounterMod(ModContentPack content)
+        public DCMod(ModContentPack content)
             : base(content)
         {
-            s_Settings = GetSettings<DCSettings>();
+            s_Settings = GetSettings<DCModSettings>();
+            s_ModContent = content;
         }
 
         public override void DoSettingsWindowContents(Rect inRect)
         {
+            if (s_Settings == null)
+            {
+                Log.Error("[DayCounter] DCModSettings is null.");
+                return;
+            }
+
             s_Settings.DoWindowContents(inRect);
             base.DoSettingsWindowContents(inRect);
         }

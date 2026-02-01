@@ -1,4 +1,3 @@
 # Directories
-Assemblies/
-Source/obj/
-Source/.vs/
+**/obj
+**/.vs
