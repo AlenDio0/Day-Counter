@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using RimWorld;
+using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace DayCounter
 {
@@ -8,13 +10,15 @@ namespace DayCounter
         public bool Enabled;
         public bool OriginUpRight;
         public bool Outline;
+        public bool Animation;
         public bool DebugBox;
 
         public string CustomText;
 
-        public int OffsetX;
-        public int OffsetY;
-        public float Scale;
+        public Vector2 Offset;
+        public Vector2 Scale;
+
+        public bool LockScale;
 
         public Color FillColor;
         public Color OutlineColor;
@@ -22,10 +26,10 @@ namespace DayCounter
 
         public void DoWindowContents(Rect canva)
         {
-            Rect checkboxPart = canva.BottomPart(1f).TopPart(0.1f).BottomPart(0.9f);
-            Rect entryPart = canva.BottomPart(0.9f).TopPart(0.1f).BottomPart(0.9f);
-            Rect sliderPart = canva.BottomPart(0.8f).TopPart(0.4f).BottomPart(0.9f);
-            Rect colorPart = canva.BottomPart(0.4f).TopPart(0.4f).BottomPart(0.9f);
+            Rect checkboxPart = canva.BottomPart(1f).TopPart(0.2f).BottomPart(0.9f);
+            Rect entryPart = canva.BottomPart(1f).TopPart(0.2f).BottomHalf().RightHalf();
+            Rect sliderPart = canva.BottomPart(0.8f).TopPart(0.5f).BottomPart(0.9f);
+            Rect colorPart = canva.BottomPart(0.3f).TopPart(0.4f).BottomPart(0.9f);
 
             ShowCheckboxes(checkboxPart);
             ShowTextEntry(entryPart);
@@ -44,6 +48,9 @@ namespace DayCounter
 
             listing.CheckboxLabeled(DCData.Label_TextEnabled, ref Enabled);
 
+            listing.Gap();
+            listing.CheckboxLabeled(DCData.Label_DebugBox, ref DebugBox);
+
             listing.NewColumn();
             listing.CheckboxLabeled(DCData.Label_TextOriginUpRight, ref OriginUpRight);
 
@@ -51,15 +58,15 @@ namespace DayCounter
             listing.CheckboxLabeled(DCData.Label_TextOutline, ref Outline);
 
             listing.NewColumn();
-            listing.CheckboxLabeled(DCData.Label_DebugBox, ref DebugBox);
+            listing.CheckboxLabeled(DCData.Label_TextAnimation, ref Animation);
 
             listing.End();
         }
 
         private void ShowTextEntry(Rect part)
         {
-            Rect labelRect = part.LeftPart(0.15f);
-            Rect entryRect = part.RightPart(0.8f).LeftPart(0.3f).TopHalf();
+            Rect labelRect = part.LeftPart(0.2f);
+            Rect entryRect = part.RightPart(0.7f).LeftPart(0.3f).TopHalf();
 
             Widgets.Label(labelRect, DCData.Label_Text);
             CustomText = Widgets.TextField(entryRect, CustomText);
@@ -69,20 +76,50 @@ namespace DayCounter
         {
             Listing_Standard listing = new Listing_Standard
             {
-                ColumnWidth = part.width / 1.125f,
+                ColumnWidth = part.width / 1.1f,
             };
 
             listing.Begin(part);
 
-            OffsetX = (int)listing.SliderLabeled($"{DCData.Label_TextOffsetX} ({OffsetX} px)",
-                OffsetX, -UI.screenWidth, UI.screenWidth);
+            Offset.x = (int)listing.SliderLabeled($"{DCData.Label_TextOffsetX} ({Offset.x} px)",
+                Offset.x, -UI.screenWidth, UI.screenWidth);
 
             listing.Gap();
-            OffsetY = (int)listing.SliderLabeled($"{DCData.Label_TextOffsetY} ({OffsetY} px)",
-                OffsetY, -UI.screenHeight, UI.screenHeight);
+            Offset.y = (int)listing.SliderLabeled($"{DCData.Label_TextOffsetY} ({Offset.y} px)",
+                Offset.y, -UI.screenHeight, UI.screenHeight);
+
+            float DrawScaleSliderAndLock(string label, float value)
+            {
+                const float iconSize = 24f;
+                Texture2D lockImage = LockScale ? TexButton.Plus : TexButton.Minus;
+
+                Rect currentRect = listing.GetRect(0f);
+                label += $" ({value.ToStringPercent()})";
+
+                value = listing.SliderLabeled(label, value, 0.1f, 50f);
+                if (Widgets.ButtonImage(new Rect(currentRect.xMax + 20f, currentRect.y, iconSize, iconSize), lockImage))
+                {
+                    LockScale = !LockScale;
+                    SoundDefOf.Click.PlayOneShotOnCamera();
+
+                    if (LockScale)
+                        Scale = new Vector2(value, value);
+                }
+
+                return value;
+            }
 
             listing.Gap();
-            Scale = listing.SliderLabeled($"{DCData.Label_TextScale} ({Scale.ToStringPercent()})", Scale, 0.1f, 50f);
+            if (!LockScale)
+            {
+                Scale.x = DrawScaleSliderAndLock(DCData.Label_TextScaleX, Scale.x);
+                Scale.y = DrawScaleSliderAndLock(DCData.Label_TextScaleY, Scale.y);
+            }
+            else
+            {
+                Scale.x = DrawScaleSliderAndLock(DCData.Label_TextScale, Scale.x);
+                Scale.y = Scale.x;
+            }
 
             listing.Gap();
             OutlineFactor = listing.SliderLabeled($"{DCData.Label_TextOutlineFactor} ({OutlineFactor.ToStringPercent()})",
@@ -143,13 +180,15 @@ namespace DayCounter
             Scribe_Values.Look(ref Enabled, "Enabled", true);
             Scribe_Values.Look(ref OriginUpRight, "OriginUpRight", true);
             Scribe_Values.Look(ref Outline, "TextOutline", false);
+            Scribe_Values.Look(ref Animation, "Animation", true);
             Scribe_Values.Look(ref DebugBox, "DebugBox", false);
 
             Scribe_Values.Look(ref CustomText, "Text", "DAY");
 
-            Scribe_Values.Look(ref OffsetX, "TextOffsetX", 0);
-            Scribe_Values.Look(ref OffsetY, "TextOffsetY", -10);
-            Scribe_Values.Look(ref Scale, "TextScale", 3f);
+            Scribe_Values.Look(ref Offset, "TextOffset", new Vector2(0f, -10f));
+            Scribe_Values.Look(ref Scale, "TextScale", new Vector2(5f, 5f));
+
+            Scribe_Values.Look(ref LockScale, "LockScale", false);
 
             Scribe_Values.Look(ref FillColor, "TextColor", Color.white);
             Scribe_Values.Look(ref OutlineColor, "TextOutlineColor", Color.black);

@@ -10,6 +10,7 @@ namespace DayCounter
         public static string Label_TextEnabled => "Enable Text";
         public static string Label_TextOriginUpRight => "Text Origin Up-Right";
         public static string Label_TextOutline => "Enable Text Outline";
+        public static string Label_TextAnimation => "Enable Text Animation";
         public static string Label_DebugBox => "Enable Debug Box";
 
         public static string Label_Text => "Custom Text";
@@ -17,6 +18,8 @@ namespace DayCounter
         public static string Label_TextOffsetX => "Text Offset X";
         public static string Label_TextOffsetY => "Text Offset Y";
         public static string Label_TextScale => "Text Scale";
+        public static string Label_TextScaleX => "Text Scale X";
+        public static string Label_TextScaleY => "Text Scale Y";
         public static string Label_TextOutlineFactor => "Text Outline Factor";
 
         public static string Label_TextFillColor => "Fill Color";
