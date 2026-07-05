@@ -89,6 +89,9 @@ namespace DayCounter
             if (!settings.Enabled)
                 return;
 
+            if (Find.ScreenshotModeHandler.Active && !settings.ScreenshotMode)
+                return;
+
             UpdateLogic(settings);
 
             Color defaultColor = GUI.color;

@@ -12,6 +12,9 @@ namespace DayCounter
         public static string Label_TextOutline => "Enable Text Outline";
         public static string Label_TextAnimation => "Enable Text Animation";
         public static string Label_DebugBox => "Enable Debug Box";
+        public static string Label_ScreenshotMode => "Screenshot Mode";
+
+        public static string Tooltip_ScreenshotMode => "If enabled, during Screenshot Mode, the text will be visible.";
 
         public static string Label_Text => "Custom Text";
 

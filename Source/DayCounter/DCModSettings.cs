@@ -12,6 +12,7 @@ namespace DayCounter
         public bool Outline;
         public bool Animation;
         public bool DebugBox;
+        public bool ScreenshotMode;
 
         public string CustomText;
 
@@ -53,6 +54,9 @@ namespace DayCounter
 
             listing.NewColumn();
             listing.CheckboxLabeled(DCData.Label_TextOriginUpRight, ref OriginUpRight);
+
+            listing.Gap();
+            listing.CheckboxLabeled(DCData.Label_ScreenshotMode, ref ScreenshotMode, DCData.Tooltip_ScreenshotMode);
 
             listing.NewColumn();
             listing.CheckboxLabeled(DCData.Label_TextOutline, ref Outline);
@@ -182,6 +186,7 @@ namespace DayCounter
             Scribe_Values.Look(ref Outline, "TextOutline", false);
             Scribe_Values.Look(ref Animation, "Animation", true);
             Scribe_Values.Look(ref DebugBox, "DebugBox", false);
+            Scribe_Values.Look(ref ScreenshotMode, "ScreenshotMode", false);
 
             Scribe_Values.Look(ref CustomText, "Text", "DAY");
 
