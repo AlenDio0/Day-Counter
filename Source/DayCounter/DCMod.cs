@@ -29,6 +29,10 @@ namespace DayCounter
 
         public override string SettingsCategory() => DCData.ModName;
 
-        public override void WriteSettings() => base.WriteSettings();
+        public override void WriteSettings()
+        {
+            s_Settings.WriteSettings();
+            base.WriteSettings();
+        }
     }
 }

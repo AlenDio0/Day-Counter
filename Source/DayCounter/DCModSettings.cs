@@ -25,6 +25,19 @@ namespace DayCounter
         public Color OutlineColor;
         public float OutlineFactor;
 
+        private bool Written = true;
+        public bool HasWritten => Written;
+        public bool ConsumeWritten()
+        {
+            if (HasWritten)
+            {
+                Written = false;
+                return true;
+            }
+
+            return false;
+        }
+
         public void DoWindowContents(Rect canva)
         {
             Rect checkboxPart = canva.BottomPart(1f).TopPart(0.2f).BottomPart(0.9f);
@@ -200,6 +213,11 @@ namespace DayCounter
             Scribe_Values.Look(ref OutlineFactor, "TextOutlineThickness", 0.5f);
 
             base.ExposeData();
+        }
+
+        public void WriteSettings()
+        {
+            Written = true;
         }
     }
 }

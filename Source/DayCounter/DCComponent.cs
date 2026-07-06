@@ -39,16 +39,18 @@ namespace DayCounter
                 return;
             }
 
-            if (currentDay != m_CurrentDayDisplay && m_DelayTime >= DelayDuration && m_AnimationTime >= AnimationDuration)
+            if (currentDay != m_CurrentDayDisplay)
             {
                 if (settings.Animation)
                 {
-                    m_DelayTime = 0f;
+                    if (m_DelayTime >= DelayDuration && m_AnimationTime >= AnimationDuration)
+                        m_DelayTime = 0f;
                 }
                 else
                 {
                     m_CurrentDayDisplay = currentDay;
                     m_PreviousDay = currentDay;
+                    UpdateCachedSize(settings);
                 }
             }
 
@@ -91,6 +93,9 @@ namespace DayCounter
 
             if (Find.ScreenshotModeHandler.Active && !settings.ScreenshotMode)
                 return;
+
+            if (settings.ConsumeWritten())
+                UpdateCachedSize(settings);
 
             UpdateLogic(settings);
 
